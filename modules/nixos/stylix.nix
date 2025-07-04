@@ -14,7 +14,7 @@
                 enable = true;
                 platform = "qtct"
                 
-            }
-        }
+            };
+        };
     };
 }
