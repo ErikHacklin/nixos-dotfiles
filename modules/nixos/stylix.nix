@@ -12,8 +12,7 @@
         targets = {
             qt = {
                 enable = true;
-                platform = "qtct"
-                
+                platform = "qtct";
             };
         };
     };
