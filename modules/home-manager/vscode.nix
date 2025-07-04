@@ -9,6 +9,10 @@
           ms-python.python
           ms-vscode-remote.remote-ssh
         ];
+        userSettings = {
+          "git.suggestSmartCommit" = false;
+          "editor.tabSize" = 2;
+        }
       };
     };
   };
