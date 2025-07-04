@@ -13,7 +13,7 @@
     settings = {
       exec-once = [
       	"waybar &"
-	"systemctl --user start hyprpolkitagent"
+	      "systemctl --user start hyprpolkitagent"
       ];
       general = {
         "$mainMod" = "SUPER";
