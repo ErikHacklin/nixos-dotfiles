@@ -9,5 +9,12 @@
             package = inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default;
             size = 32;
         };
+        targets = {
+            qt = {
+                enable = true;
+                platform = "qtct"
+                
+            }
+        }
     };
 }
