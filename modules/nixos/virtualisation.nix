@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  virtualization.virtualbox.host = {
+  virtualisation.virtualbox.host = {
     enable = true;
     enableExtensionPack = true;
   };
