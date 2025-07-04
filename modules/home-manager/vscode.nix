@@ -12,7 +12,7 @@
         userSettings = {
           "git.suggestSmartCommit" = false;
           "editor.tabSize" = 2;
-        }
+        };
       };
     };
   };
