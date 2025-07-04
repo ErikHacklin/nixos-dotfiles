@@ -31,7 +31,7 @@
   
   programs.nh = {
     enable = true;
-    flake = "/etc/nixos";
+    flake = "/home/erik/Repositories/nixos-dotfiles";
   };
 
   programs.fish.enable = true;
