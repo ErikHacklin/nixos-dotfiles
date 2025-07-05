@@ -2,22 +2,15 @@
 {
     programs.firefox = {
         enable = true;
-        profiles = {
-            default = {
-                extensions = {
-                    force = true;
-                    # packages = with pkgs.nur.repos.rycee.firefox-addons; [
-                    #     keeper-password-manager
-                    #     ublock-origin
-                    # ];
-                };
-                settings = {
-                    "extensions.autoDisableScopes" = 0;
-                    "extensions.update.autoUpdateDefault" = false;
-                    "extensions.update.enabled" = false;
-                };
-            };
-        };
+				policies = {
+					ExtensionSettings = {
+						# Keeper Password Manager
+						"KeeperFFStoreExtension@KeeperSecurityInc" = {
+							installation_mode = "force_installed";
+							install_url = "https://addons.mozilla.org/firefox/downloads/latest/keeper-password-manager/latest.xpi";
+						};
+					};
+  			};
     };
     stylix.targets.firefox.profileNames = [ "default" ];
 }
