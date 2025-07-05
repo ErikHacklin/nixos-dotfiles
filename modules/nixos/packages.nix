@@ -21,5 +21,6 @@
     wl-clipboard-rs
     godot
     parabolic
+    gnome-boxes
   ];
 }

@@ -14,7 +14,6 @@
       ./../../modules/nixos/tailscale.nix
       ./../../modules/nixos/gaming.nix
       ./../../modules/nixos/fonts.nix
-      ./../../modules/nixos/virtualisation.nix
     ];
 
   networking.hostName = "athena"; # Define your hostname.
