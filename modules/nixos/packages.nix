@@ -22,5 +22,7 @@
     godot
     parabolic
     gnome-boxes
+    python314
+    variety
   ];
 }

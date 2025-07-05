@@ -13,12 +13,13 @@
     settings = {
       exec-once = [
       	"waybar &"
-	      "systemctl --user start hyprpolkitagent"
+	"systemctl --user start hyprpolkitagent"
+	"variety"
       ];
       general = {
-        "$mainMod" = "SUPER";
-	      "$launcher" = "walker";
-	      "$browser" = "firefox";
+          "$mainMod" = "SUPER";
+	  "$launcher" = "walker";
+	  "$browser" = "firefox";
         gaps_in = 5;
         gaps_out = 5;
         border_size = 2;
