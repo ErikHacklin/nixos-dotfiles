@@ -14,7 +14,7 @@
       exec-once = [
       	"waybar &"
 	"systemctl --user start hyprpolkitagent"
-	"variety"
+	"variety &"
       ];
       general = {
           "$mainMod" = "SUPER";
