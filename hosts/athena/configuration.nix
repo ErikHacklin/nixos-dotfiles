@@ -1,5 +1,11 @@
 { config, pkgs, inputs, ... }:
 {
+  imports =
+    [
+      ./hardware-configuration.nix
+      ./../../modules/nixos
+    ];
+
   networking.hostName = "athena"; # Define your hostname.
 
   # Enable networking

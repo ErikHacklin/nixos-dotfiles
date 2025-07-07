@@ -1,8 +1,7 @@
 { ... }:
 {
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+    [
       ./../../modules/nixos/boot.nix
       ./../../modules/nixos/security.nix
       ./../../modules/nixos/time.nix
