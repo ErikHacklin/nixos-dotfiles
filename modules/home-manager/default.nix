@@ -3,6 +3,7 @@
   imports = [
     ./../../modules/home-manager/packages.nix
     ./../../modules/home-manager/hyprland.nix
+    ./../../modules/home-manager/wofi.nix
     ./../../modules/home-manager/waybar.nix
     ./../../modules/home-manager/waybar-css.nix
     ./../../modules/home-manager/git.nix

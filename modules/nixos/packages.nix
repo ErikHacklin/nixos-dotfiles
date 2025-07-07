@@ -6,7 +6,6 @@
     git
     dig
     pavucontrol
-    walker
     wl-clipboard-rs
     
     # Fonts
