@@ -5,14 +5,25 @@
       default = {
         extensions = with pkgs.vscode-extensions; [
           vscodevim.vim
-          bbenoist.nix
           ms-python.python
           ms-vscode-remote.remote-ssh
+          jnoortheen.nix-ide
+          bierner.color-info
+          github.copilot
+          github.copilot-chat
+
         ];
         userSettings = {
           "git.suggestSmartCommit" = false;
           "editor.tabSize" = 2;
           "git.confirmSync" = false;
+          "nix.enableLanguageServer" = true;
+          "nix.serverPath" = "nil"
+          "nix.serverSettings" = {
+            "nil" = {
+              "formatting" = { "command": ["nixfmt"] }
+            };
+          };
         };
       };
     };
