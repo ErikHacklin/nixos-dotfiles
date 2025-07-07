@@ -18,10 +18,10 @@
           "editor.tabSize" = 2;
           "git.confirmSync" = false;
           "nix.enableLanguageServer" = true;
-          "nix.serverPath" = "nil"
+          "nix.serverPath" = "nil";
           "nix.serverSettings" = {
             "nil" = {
-              "formatting" = { "command": ["nixfmt"] }
+              "formatting" = { "command": ["nixfmt"] };
             };
           };
         };
