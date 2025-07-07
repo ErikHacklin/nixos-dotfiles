@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
+
 {
+  imports = [ # Imported modules for Elitebook 1030 X360 G2
+    ./../../modules/home-manager
+  ];
   home.username = "erik";
   home.homeDirectory = "/home/erik";
 
