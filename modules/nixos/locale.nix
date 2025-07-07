@@ -12,4 +12,12 @@
     LC_TELEPHONE = "fi_FI.UTF-8";
     LC_TIME = "fi_FI.UTF-8";
   };
+    # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "fi";
+    variant = "";
+  };
+
+  # Configure console keymap
+  console.keyMap = "fi";
 }

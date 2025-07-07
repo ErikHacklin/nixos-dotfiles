@@ -39,15 +39,6 @@
   # Optional, hint Electron apps to use Wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "fi";
-    variant = "";
-  };
-
-  # Configure console keymap
-  console.keyMap = "fi";
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
