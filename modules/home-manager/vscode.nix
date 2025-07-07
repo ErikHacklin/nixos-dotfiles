@@ -5,6 +5,7 @@
     profiles.default = {
       extensions = with pkgs.vscode-extensions; [
         vscodevim.vim
+        usernamehw.errorlens
         ms-python.python
         ms-vscode-remote.remote-ssh
         jnoortheen.nix-ide
