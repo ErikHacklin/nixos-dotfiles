@@ -78,6 +78,11 @@
 	"$mainMod, C, killactive,"
 	"$mainMod, M, exit,"
 	
+	# Variety keybinds
+	"$mainMod SHIFT, T, exec, variety --trash"
+	"$mainMod SHIFT, P, exec, variety --previous"
+	"$mainMod SHIFT, N, exec, variety --next"
+
 	# Move focus with mainMod + arrow keys
 	"$mainMod, left, movefocus, l"
 	"$mainMod, right, movefocus, r"
