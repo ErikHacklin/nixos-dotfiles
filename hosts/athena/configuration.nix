@@ -40,19 +40,19 @@
 
   services.gnome.gnome-keyring.enable = true; 
 
-  nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
-    auto-optimise-store = true;
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      auto-optimise-store = true;
+    };
+    optimise.automatic = true;
+    gc = {
+      persistent = true;
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than-30d";
+    };
   };
 
-  nix.optimise.automatic = true;
-  
-  nix.gc = {
-    persistent = true;
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than-30d";
-  };
-  
   system.stateVersion = "25.11";
 }
