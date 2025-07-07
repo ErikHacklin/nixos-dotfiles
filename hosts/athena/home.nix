@@ -5,6 +5,7 @@
     ./../../modules/home-manager/packages.nix
     ./../../modules/home-manager/hyprland.nix
     ./../../modules/home-manager/waybar.nix
+    ./../../modules/home-manager/waybar-css.nix
     ./../../modules/home-manager/git.nix
     ./../../modules/home-manager/fish.nix
     ./../../modules/home-manager/ghostty.nix
