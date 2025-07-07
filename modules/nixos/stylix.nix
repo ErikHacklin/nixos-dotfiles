@@ -9,5 +9,9 @@
             package = inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default;
             size = 32;
         };
+        fonts = {
+            monospace.name = "JetBrainsMono Nerd Font";
+            sansSerif.name = "JetBrainsMono Nerd Font";
+        };
     };
 }
