@@ -9,6 +9,7 @@
       ./../../modules/nixos/users.nix
       ./../../modules/nixos/packages.nix
       ./../../modules/nixos/audio.nix
+      ./../../modules/nixos/bluetooth.nix
       ./../../modules/nixos/ssh.nix
       ./../../modules/nixos/stylix.nix
       ./../../modules/nixos/tailscale.nix
