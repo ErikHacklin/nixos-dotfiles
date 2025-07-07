@@ -81,6 +81,9 @@
       #cpu {
         color: @base0C;
       }
+      #bluetooth {
+        color: @base0D;
+      }
       #disk {
         color: @base0F;
       }

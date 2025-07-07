@@ -19,6 +19,7 @@
         "backlight"
         "memory"
         "cpu"
+        "bluetooth"
         "network"
 	      "battery"
 	      "clock"
@@ -57,6 +58,11 @@
       "cpu" = {
         "interval" = 1;
         "format" = "󰍛 CPU: {usage}%";
+      };
+      "bluetooth" = {
+        "on-click" = "blueberry";
+        "format-connected" = "󰂯 {device_alias}";
+        "tooltip" = false;
       };
       "network" = {
         "format-disconnected" = "󰯡 Disconnected";
