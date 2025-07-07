@@ -2,27 +2,41 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    dig
-    adwaita-icon-theme
-    corefonts
-    gnome-themes-extra
+    # Utilities
     git
+    dig
     pavucontrol
-    kitty
     walker
-    hyprpolkitagent
-    niri
-    kodi-wayland
-    blueberry
-    yt-dlp
-    vlc
-    spotify
-    waypaper
     wl-clipboard-rs
-    godot
-    parabolic
-    gnome-boxes
-    python314
+    
+    # Fonts
+    corefonts
+
+    # Theming
+    adwaita-icon-theme
+    gnome-themes-extra
+
+    # Bluetooth
+    blueberry
+    
+    # System tools
+    hyprpolkitagent
+
+    #Multimedia
     variety
+    spotify
+    vlc
+    kodi-wayland
+    yt-dlp
+    parabolic
+
+    # Development
+    python314
+    godot
+    nil
+    nixfmt-rfc-style
+
+    # Virtualization
+    gnome-boxes
   ];
 }
