@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -21,6 +21,7 @@
     
     # System tools
     hyprpolkitagent
+    inputs.agenix.packages."${system}".default
 
     #Multimedia
     variety

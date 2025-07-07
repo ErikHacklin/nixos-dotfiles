@@ -7,19 +7,21 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix.url = "github:ryantm/agenix";
     stylix.url = "github:danth/stylix";
     walker.url = "github:abenz1267/walker";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
   };
 
-  outputs = inputs @ { nixpkgs, home-manager, ... }: {
+  outputs = inputs @ { nixpkgs, home-manager, stylix, agenix, ... }: {
     nixosConfigurations = {
       athena = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/athena/configuration.nix
-          inputs.stylix.nixosModules.stylix
+          stylix.nixosModules.stylix
+	        agenix.nixosModules.default
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
           home-manager.nixosModules.home-manager
