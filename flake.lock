@@ -518,11 +518,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1751822129,
-        "narHash": "sha256-aI8JTRZHynKKJQpNP5TJuHsFQpKfDVJbW/u99lTpGyg=",
+        "lastModified": 1751883714,
+        "narHash": "sha256-8kFTC9HgITBu5Yul3b8yOul/jgJ5aW2N8cjXNpOMvw0=",
         "owner": "abenz1267",
         "repo": "walker",
-        "rev": "2f16a48d6fa4f0f16c7b2173a1ff434005c8ed32",
+        "rev": "903e4081bc63fa9734ce2248d77edbea16fdd755",
         "type": "github"
       },
       "original": {
