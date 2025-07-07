@@ -15,5 +15,6 @@
       ./../../modules/nixos/gaming.nix
       ./../../modules/nixos/fonts.nix
       ./../../modules/nixos/virtualisation.nix
+      ./../../modules/nixos/hyprland.nix
     ];
 }

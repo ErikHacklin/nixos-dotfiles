@@ -15,15 +15,6 @@
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
-    
-  # Enable Hyprland
-  programs.hyprland.enable = true;
-  
-  programs.nh = {
-    enable = true;
-    flake = "/home/erik/Repositories/nixos-dotfiles";
-  };
-
   programs.fish.enable = true;
 
   programs.bash = {

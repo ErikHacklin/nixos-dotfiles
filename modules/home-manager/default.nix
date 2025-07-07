@@ -17,6 +17,7 @@
     ./../../modules/home-manager/hyprsunset.nix
     ./../../modules/home-manager/hyprlock.nix
     ./../../modules/home-manager/variety.nix
+    ./../../modules/home-manager/nh.nix
     ./../../modules/home-manager/dconf.nix
   ];
 }
