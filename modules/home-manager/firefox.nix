@@ -9,6 +9,11 @@
 					installation_mode = "force_installed";
 					install_url = "https://addons.mozilla.org/firefox/downloads/latest/keeper-password-manager/latest.xpi";
 				};
+				# Stylus Userstyles
+				"{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}" = {
+					installation_mode = "force_installed";
+					install_url = "https://addons.mozilla.org/firefox/downloads/latest/styl-us/latest.xpi";
+				};
 			};
 		};
 		profiles = {
