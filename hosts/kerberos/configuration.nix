@@ -5,11 +5,14 @@
       ./../../modules/nixos
     ];
 
-  networking.hostName = "athena"; # Define your hostname.
+  networking.hostName = "kerberos"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+  
   programs.fish.enable = true;
 
   programs.bash = {
