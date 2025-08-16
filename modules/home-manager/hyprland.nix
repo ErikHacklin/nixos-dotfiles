@@ -119,6 +119,10 @@
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioPrev, exec, playerctl previous"
         ", XF86AudioNext, exec, playerctl next"
+	# trigger when the laptop lid switch is turning on
+	", switch:on:Lid Switch, exec, hyprctl keyword monitor \"eDP-1, disable\""
+	# trigger when the laptop lid switch is turning off
+	", switch:off:Lid Switch, exec, hyprctl keyword monitor \"eDP-1, 1920x1080@60, 0x0, 1\""
       ];
       windowrule = [
         "tile, class:Godot"
