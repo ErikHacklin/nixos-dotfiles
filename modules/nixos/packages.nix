@@ -22,6 +22,7 @@
     hyprpolkitagent
     inputs.agenix.packages."${system}".default
     firmware-manager
+    dmidecode
 
     #Multimedia
     variety
@@ -37,7 +38,16 @@
     nil
     nixfmt-rfc-style
 
+    # Gaming
+    wineWowPackages.staging
+    heroic
+    libGLU
+
     # Virtualization
     gnome-boxes
+
+    # 3D printing / modeling
+    cura-appimage
+    blender
   ];
 }
