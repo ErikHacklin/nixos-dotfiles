@@ -10,4 +10,7 @@
   };
   # Enable Feral Gamemode
   programs.gamemode.enable = true;
+
+  # Enable xpadneo driver for Xbox controllers
+  hardware.xpadneo.enable = true;
 }
