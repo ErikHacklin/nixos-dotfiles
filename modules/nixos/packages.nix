@@ -21,6 +21,7 @@
     # System tools
     hyprpolkitagent
     inputs.agenix.packages."${system}".default
+    firmware-manager
 
     #Multimedia
     variety
