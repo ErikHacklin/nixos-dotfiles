@@ -21,7 +21,6 @@
     # System tools
     hyprpolkitagent
     inputs.agenix.packages."${system}".default
-    firmware-manager
     dmidecode
 
     #Multimedia
