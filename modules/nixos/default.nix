@@ -16,6 +16,10 @@
       ./../../modules/nixos/gaming.nix
       ./../../modules/nixos/fonts.nix
       ./../../modules/nixos/virtualisation.nix
-      ./../../modules/nixos/hyprland.nix
+      ./../../modules/nixos/desktop-managers/hyprland.nix
+      ./../../modules/nixos/desktop-managers/gnome.nix
+      ./../../modules/nixos/desktop-managers/budgie.nix
+      ./../../modules/nixos/display-managers/gdm.nix
+      ./../../modules/nixos/display-managers/lightdm.nix
     ];
 }

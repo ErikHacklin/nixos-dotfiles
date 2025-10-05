@@ -6,7 +6,11 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
+    protontricks.enable = true;
   };
   # Enable Feral Gamemode
   programs.gamemode.enable = true;
+
+  # Enable xpadneo driver for Xbox controllers
+  hardware.xpadneo.enable = true;
 }

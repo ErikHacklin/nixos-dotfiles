@@ -7,7 +7,8 @@
     dig
     pavucontrol
     wl-clipboard-rs
-    
+    moonlight-qt
+
     # Fonts
     corefonts
 
@@ -21,6 +22,7 @@
     # System tools
     hyprpolkitagent
     inputs.agenix.packages."${system}".default
+    dmidecode
 
     #Multimedia
     variety
@@ -36,7 +38,16 @@
     nil
     nixfmt-rfc-style
 
+    # Gaming
+    wineWowPackages.staging
+    heroic
+    libGLU
+
     # Virtualization
     gnome-boxes
+
+    # 3D printing / modeling
+    cura-appimage
+    blender
   ];
 }

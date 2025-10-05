@@ -5,11 +5,14 @@
       ./../../modules/nixos
     ];
 
-  networking.hostName = "athena"; # Define your hostname.
+  networking.hostName = "kerberos"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+  
   programs.fish.enable = true;
 
   programs.bash = {
@@ -21,6 +24,11 @@
       fi
     '';
   };
+
+  hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.open = false;
 
   # Optional, hint Electron apps to use Wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
