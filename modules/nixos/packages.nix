@@ -7,7 +7,8 @@
     dig
     pavucontrol
     wl-clipboard-rs
-    
+    moonlight-qt
+
     # Fonts
     corefonts
 
