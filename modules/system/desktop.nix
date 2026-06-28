@@ -5,14 +5,9 @@
   programs.hyprland.enable = true;
 
   # Display manager
-  services.greetd = {
+  services.xserver.displayManager.gdm = {
     enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions";
-        user = "greeter";
-      };
-    };
+    wayland = true;
   };
 
   # Configure keymap
