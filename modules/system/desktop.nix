@@ -5,9 +5,8 @@
   programs.hyprland.enable = true;
 
   # Display manager
-  services.xserver.displayManager.gdm = {
+  services.displayManager.gdm = {
     enable = true;
-    wayland = true;
   };
 
   # Configure keymap
