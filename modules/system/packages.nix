@@ -17,6 +17,7 @@
     wget
     variety
     nautilus
+    nixd
   ];
 
   # Default editor

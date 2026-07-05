@@ -4,6 +4,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.editor = false; # Prevent boot entry editing from gaining root access
+  boot.loader.timeout = 0;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.

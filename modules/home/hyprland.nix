@@ -17,12 +17,16 @@
       };
 
       config = {
-	general = {
-	  gaps_out = 10;
-	  gaps_in = 5;
-	};
+        general = {
+          gaps_out = 10;
+          gaps_in = 5;
+        };
         input = {
           kb_layout = "fi";
+        };
+        misc = {
+          disable_hyprland_logo = true;
+          disable_splash_rendering = true;
         };
       };
 
@@ -37,7 +41,7 @@
         { _args = [ (lib.generators.mkLuaInline ''mod .. " + T"'') (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("ghostty")'') ]; }
         { _args = [ (lib.generators.mkLuaInline ''mod .. " + W"'') (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("microsoft-edge")'') ]; }
         { _args = [ (lib.generators.mkLuaInline ''mod .. " + F"'') (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("nautilus")'') ]; }
-        { _args = [ (lib.generators.mkLuaInline ''mod .. " + Q"'') (lib.generators.mkLuaInline ''hl.dsp.window.close()'') ]; }
+        { _args = [ (lib.generators.mkLuaInline ''mod .. " + C"'') (lib.generators.mkLuaInline ''hl.dsp.window.close()'') ]; }
         { _args = [ (lib.generators.mkLuaInline ''mod .. " + M"'') (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("loginctl terminate-user $USER")'') ]; }
         { _args = [ (lib.generators.mkLuaInline ''mod .. " + D"'') (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("noctalia msg panel-toggle launcher")'') ]; }
         { _args = [ (lib.generators.mkLuaInline ''mod .. " + X"'') (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("noctalia msg panel-toggle session")'') ]; }

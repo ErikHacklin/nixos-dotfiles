@@ -1,10 +1,14 @@
 { config, pkgs, ... }:
 
 {
+  # Enable zsh system-wide (required for user shell)
+  programs.zsh.enable = true;
+
   # Define a user account.
   users.users."erik" = {
     isNormalUser = true;
     description = "Erik Hacklin";
+    shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     ];

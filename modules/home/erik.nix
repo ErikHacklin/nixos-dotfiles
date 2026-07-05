@@ -6,6 +6,8 @@
     ./noctalia.nix
     ./git.nix
     ./theme.nix
+    ./shell.nix
+    ./ghostty.nix
   ];
 
   # Home Manager state version — matches your NixOS stateVersion.
