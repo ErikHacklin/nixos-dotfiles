@@ -18,6 +18,8 @@
     variety
     nautilus
     nixd
+    brightnessctl
+    wev
   ];
 
   # Default editor
