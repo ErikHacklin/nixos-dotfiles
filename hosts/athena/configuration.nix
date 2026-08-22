@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./hardware.nix
     ../../modules/system/boot.nix
     ../../modules/system/desktop.nix
     ../../modules/system/locale.nix
@@ -13,6 +14,7 @@
     ../../modules/system/nix-settings.nix
     ../../modules/system/nh.nix
     ../../modules/system/gaming.nix
+    ../../modules/system/dms-shell.nix
   ];
 
   networking.hostName = "athena";

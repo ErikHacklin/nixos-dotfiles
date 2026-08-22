@@ -25,10 +25,23 @@
     pulse.enable = true;
   };
 
-  # Services needed by Noctalia
+  # Services for desktop shell
   hardware.bluetooth.enable = true;
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
+
+  # GNOME Keyring (auto-unlocked by GDM on login)
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.gdm-password.enableGnomeKeyring = true;
+
+  # gvfs for trash, network drives, and MTP in Nautilus
+  services.gvfs.enable = true;
+
+  # Docker
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = false; # start on demand, saves boot time
+  };
 
   # XDG portal for Hyprland
   xdg.portal = {

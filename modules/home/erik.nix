@@ -3,7 +3,6 @@
 {
   imports = [
     ./hyprland.nix
-    ./noctalia.nix
     ./git.nix
     ./theme.nix
     ./shell.nix

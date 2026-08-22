@@ -8,7 +8,7 @@
     configType = "lua";
     extraConfig = ''
       hl.on("hyprland.start", function()
-        hl.exec_cmd("noctalia")
+        hl.exec_cmd("systemctl --user start hyprpolkitagent")
       end)
 
       -- Volume keys
@@ -42,7 +42,7 @@
 
       monitor = {
         output = "";
-        mode = "1920x1080@60";
+        mode = "preferred";
         position = "auto";
         scale = 1;
       };
@@ -53,8 +53,8 @@
         { _args = [ (lib.generators.mkLuaInline ''mod .. " + F"'') (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("nautilus")'') ]; }
         { _args = [ (lib.generators.mkLuaInline ''mod .. " + C"'') (lib.generators.mkLuaInline ''hl.dsp.window.close()'') ]; }
         { _args = [ (lib.generators.mkLuaInline ''mod .. " + M"'') (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("loginctl terminate-user $USER")'') ]; }
-        { _args = [ (lib.generators.mkLuaInline ''mod .. " + D"'') (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("noctalia msg panel-toggle launcher")'') ]; }
-        { _args = [ (lib.generators.mkLuaInline ''mod .. " + X"'') (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("noctalia msg panel-toggle session")'') ]; }
+        { _args = [ (lib.generators.mkLuaInline ''mod .. " + D"'') (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("dms ipc launcher toggle")'') ]; }
+        { _args = [ (lib.generators.mkLuaInline ''mod .. " + X"'') (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("dms ipc powermenu toggle")'') ]; }
         # Workspaces
         { _args = [ (lib.generators.mkLuaInline ''mod .. " + 1"'') (lib.generators.mkLuaInline "hl.dsp.focus({ workspace = 1 })") ]; }
         { _args = [ (lib.generators.mkLuaInline ''mod .. " + 2"'') (lib.generators.mkLuaInline "hl.dsp.focus({ workspace = 2 })") ]; }

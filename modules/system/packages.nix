@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   # Install firefox.
@@ -8,7 +8,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # System packages
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = (with pkgs; [
     kiro-fhs
     microsoft-edge
     ghostty
@@ -20,6 +20,10 @@
     nixd
     brightnessctl
     wev
+    docker-compose
+    hyprpolkitagent
+  ]) ++ [
+    inputs.freegosy.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   # Default editor

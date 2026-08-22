@@ -9,7 +9,7 @@
     isNormalUser = true;
     description = "Erik Hacklin";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
     ];
     openssh.authorizedKeys.keys = [
