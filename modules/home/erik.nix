@@ -7,6 +7,8 @@
     ./theme.nix
     ./shell.nix
     ./ghostty.nix
+    ./dms-shell.nix
+    inputs.dms.homeModules.dank-material-shell
   ];
 
   # Home Manager state version — matches your NixOS stateVersion.

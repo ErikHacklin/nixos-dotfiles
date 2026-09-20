@@ -14,7 +14,6 @@
     ../../modules/system/nix-settings.nix
     ../../modules/system/nh.nix
     ../../modules/system/gaming.nix
-    ../../modules/system/dms-shell.nix
   ];
 
   networking.hostName = "athena";

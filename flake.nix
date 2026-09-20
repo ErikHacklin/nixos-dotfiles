@@ -12,6 +12,11 @@
     freegosy = {
       url = "github:abduznik/Freegosy";
     };
+
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell/stable";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, freegosy, ... }: {

@@ -5,8 +5,14 @@
   programs.hyprland.enable = true;
 
   # Display manager
-  services.displayManager.gdm = {
+  # services.displayManager.gdm = {
+  #   enable = true;
+  # };
+
+  services.displayManager.dms-greeter = {
     enable = true;
+    compositor.name = "hyprland";
+    configHome = "/home/erik";
   };
 
   # Configure keymap
