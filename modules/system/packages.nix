@@ -9,6 +9,7 @@
 
   # System packages
   environment.systemPackages = (with pkgs; [
+    gnome-disk-utility
     kiro-fhs
     microsoft-edge
     ghostty
@@ -22,6 +23,7 @@
     wev
     docker-compose
     hyprpolkitagent
+    jellyfin-desktop
   ]) ++ [
     inputs.freegosy.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
