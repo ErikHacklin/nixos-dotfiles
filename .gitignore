@@ -1,0 +1,6 @@
+# Kiro workspace metadata
+.kiro/
+
+# Python test caches (from removed test suite)
+.pytest_cache/
+.hypothesis/
