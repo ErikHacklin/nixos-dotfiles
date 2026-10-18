@@ -26,7 +26,4 @@
     "rd.udev.log_level=3"
     "udev.log_priority=3"
   ];
-
-  # LUKS encrypted root partition (NVMe SSD)
-  boot.initrd.luks.devices."luks-c634cc00-b728-43a2-9df7-cb6e0d0d6fc8".device = "/dev/disk/by-uuid/c634cc00-b728-43a2-9df7-cb6e0d0d6fc8";
 }
