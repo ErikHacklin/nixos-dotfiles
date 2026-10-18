@@ -25,6 +25,7 @@
     hyprpolkitagent
     jellyfin-desktop
     valent
+    cozy
   ]) ++ [
     inputs.freegosy.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
