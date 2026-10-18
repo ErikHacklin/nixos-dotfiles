@@ -55,24 +55,6 @@
         "type": "github"
       }
     },
-    "freegosy": {
-      "inputs": {
-        "nixpkgs": "nixpkgs"
-      },
-      "locked": {
-        "lastModified": 1789363359,
-        "narHash": "sha256-Fe6x1xSe/YzK5lWAnzkqTOpQrA5XUO/bWXt1JnRFSWk=",
-        "owner": "abduznik",
-        "repo": "Freegosy",
-        "rev": "f6ecaa03eca10229f2fd92e752a8d20c7fbc3d8a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "abduznik",
-        "repo": "Freegosy",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -109,28 +91,11 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1789426278,
-        "narHash": "sha256-GnotcvKtbTMnoVx6G4E7ZdUX6487Dky74dqq3pU7iRk=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "efe6f071ede9d21c37462d2d6682d5e670099684",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "dms": "dms",
-        "freegosy": "freegosy",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs"
       }
     }
   },

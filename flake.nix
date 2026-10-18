@@ -9,17 +9,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    freegosy = {
-      url = "github:abduznik/Freegosy";
-    };
-
     dms = {
       url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, freegosy, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
       athena = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

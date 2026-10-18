@@ -26,9 +26,7 @@
     jellyfin-desktop
     valent
     cozy
-  ]) ++ [
-    inputs.freegosy.packages.${pkgs.stdenv.hostPlatform.system}.default
-  ];
+  ]);
 
   # Default editor
   environment.variables.EDITOR = "nvim";
