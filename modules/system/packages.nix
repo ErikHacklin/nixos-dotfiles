@@ -24,6 +24,7 @@
     docker-compose
     hyprpolkitagent
     jellyfin-desktop
+    valent
   ]) ++ [
     inputs.freegosy.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
