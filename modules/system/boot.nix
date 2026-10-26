@@ -12,11 +12,9 @@
 
   # Plymouth boot splash (also handles LUKS password prompt)
   boot.plymouth.enable = true;
-  boot.initrd.systemd.enable = true; # Required for plymouth to handle LUKS prompt
 
   # Silent boot — suppress kernel messages for a clean splash experience
   boot.consoleLogLevel = 0;
-  boot.initrd.verbose = false;
   boot.kernelParams = [
     "quiet"
     "splash"
