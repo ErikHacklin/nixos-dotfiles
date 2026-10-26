@@ -49,9 +49,10 @@
     enableOnBoot = false; # start on demand, saves boot time
   };
 
-  # XDG portal for Hyprland
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
-  };
+  # XDG portal. programs.hyprland.enable already registers
+  # xdg-desktop-portal-hyprland via xdg.portal.extraPortals, so adding it
+  # again here pulls in a second, differently-built copy of the package and
+  # causes a user-units symlink collision:
+  #   ln: failed to create symbolic link '.../xdg-desktop-portal-hyprland.service': File exists
+  xdg.portal.enable = true;
 }

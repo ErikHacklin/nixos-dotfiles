@@ -1,3 +1,7 @@
+# Nix build artifacts (symlink created by `nix build` / `nh os build`)
+result
+result-*
+
 # Kiro workspace metadata
 .kiro/
 
