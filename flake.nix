@@ -23,6 +23,11 @@
       url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
@@ -32,6 +37,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           inputs.disko.nixosModules.disko
+          inputs.sops-nix.nixosModules.sops
           ./hosts/athena/configuration.nix
           ./hosts/athena/disko.nix
           home-manager.nixosModules.home-manager
