@@ -1,6 +1,13 @@
 { config, pkgs, lib, inputs, ... }:
 
 {
+  # Tell the sops CLI where the personal age key lives, for interactive
+  # encrypt/decrypt/edit of the nixos-secrets repo. Session-wide (not tied to
+  # Hyprland), so it applies in TTY, SSH, and compositor sessions alike.
+  home.sessionVariables = {
+    SOPS_AGE_KEY_FILE = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
+  };
+
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
