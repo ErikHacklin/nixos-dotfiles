@@ -78,6 +78,22 @@ lsblk -f
 
 Nine ordered steps. Do them in order.
 
+> **Scripted path:** `install.sh` automates the parts that are safe to automate
+> and stops at every manual firmware/reboot boundary. It runs in three phases
+> that map onto the steps below:
+>
+> ```bash
+> sudo ./install.sh install    <DISK> <CONFIG>   # steps 2–4
+> sudo ./install.sh secureboot                   # step 6 (automatable part)
+> sudo ./install.sh tpm        <LUKS-PART>        # step 8
+> ```
+>
+> The script handles the `secureboot.nix` toggle for you (comments it out for
+> the first install, re-enables it in the `secureboot` phase) and the two-build
+> `sbctl` sequence. It will **not** touch firmware, reboot, or enroll Secure Boot
+> keys — do those manual steps (6e–6g, the reboots, and all verification) from
+> the runbook below. Read the "Critical ordering" section first either way.
+
 ### 1. Boot the installer
 
 Boot the NixOS installer in UEFI mode. In firmware: TPM/PTT enabled, Secure Boot
@@ -88,10 +104,19 @@ can be set to Setup Mode later (leave it off for now).
 Make this configuration available on the installer (clone it, or mount a copy).
 Verify the disk path in `hosts/athena/disko.nix` matches `lsblk`.
 
-Leave Secure Boot **disabled for the first install** — `secureboot.nix` is
-intentionally left un-imported in `hosts/athena/configuration.nix`, so the first
-boot runs on systemd-boot. `luks-unlock.nix` is imported from the start; it is
-safe and independent of Secure Boot.
+Leave Secure Boot **disabled for the first install** so the first boot runs on
+systemd-boot. The committed `hosts/athena/configuration.nix` ships with
+`secureboot.nix` **imported** (that is the steady state after setup), so before
+the first install you must comment that import out:
+
+```nix
+    # ../../modules/system/secureboot.nix  # ENABLE AT RUNBOOK STEP 6
+```
+
+The `install install` phase of `install.sh` does this automatically; if you are
+installing by hand, edit the line yourself. You re-enable it at step 6.
+`luks-unlock.nix` is imported from the start; it is safe and independent of
+Secure Boot.
 
 ### 3. Partition + format + mount with disko
 
@@ -136,13 +161,15 @@ systemctl hibernate  # then power on and confirm resume works
 
 ### 6. Set up Secure Boot (lanzaboote)
 
-a. Enable the Secure Boot module — in `hosts/athena/configuration.nix`, uncomment:
+a. Re-enable the Secure Boot module — in `hosts/athena/configuration.nix`,
+uncomment the import you commented out at step 2:
 
 ```nix
     ../../modules/system/secureboot.nix
 ```
 
 This forces systemd-boot off (`lib.mkForce false`) and switches to lanzaboote.
+(`sudo ./install.sh secureboot` does this and steps 6b–6d for you.)
 
 b. Rebuild to activate the module. This puts `sbctl` on your `PATH` (it is
 installed by `secureboot.nix`) and switches the loader to lanzaboote:
