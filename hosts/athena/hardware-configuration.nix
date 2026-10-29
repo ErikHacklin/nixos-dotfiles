@@ -4,6 +4,11 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
+  # NOTE: filesystems, LUKS, and swap are now defined declaratively in
+  # hosts/athena/disko.nix. The generated fileSystems.*, boot.initrd.luks, and
+  # swapDevices stanzas were intentionally removed from this file to avoid
+  # conflicting with disko (which generates those options). The header above
+  # says "Do not modify this file"; overriding it here is intentional.
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
@@ -12,33 +17,6 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
-
-  fileSystems."/" =
-    { device = "/dev/mapper/luks-40efac4e-2c15-4372-b975-cdea71506bba";
-      fsType = "btrfs";
-    };
-
-  boot.initrd.luks.devices."luks-40efac4e-2c15-4372-b975-cdea71506bba".device = "/dev/disk/by-uuid/40efac4e-2c15-4372-b975-cdea71506bba";
-
-  fileSystems."/nix" =
-    { device = "/dev/mapper/luks-40efac4e-2c15-4372-b975-cdea71506bba";
-      fsType = "btrfs";
-      options = [ "subvol=nix" ];
-    };
-
-  fileSystems."/home" =
-    { device = "/dev/mapper/luks-40efac4e-2c15-4372-b975-cdea71506bba";
-      fsType = "btrfs";
-      options = [ "subvol=home" ];
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/BA87-A5DE";
-      fsType = "vfat";
-      options = [ "fmask=0077" "dmask=0077" ];
-    };
-
-  swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
