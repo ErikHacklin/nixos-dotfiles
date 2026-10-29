@@ -12,8 +12,8 @@ with system modules under `modules/system/`, home-manager modules under
   subvolumes (`/`, `/nix`, `/home`) plus a 20 GiB encrypted swap volume for
   hibernation.
 - **Secure Boot via [lanzaboote](https://github.com/nix-community/lanzaboote)** —
-  replaces systemd-boot and signs the boot chain with your own keys (no Microsoft
-  keys).
+  replaces systemd-boot and signs the boot chain with your own keys (enrolled
+  alongside Microsoft's keys so pre-signed firmware option ROMs keep working).
 - **TPM2 + optional FIDO2 LUKS auto-unlock** — the disk unlocks automatically on a
   trusted boot (TPM2 bound to PCR 7), with an optional FIDO2 security key and a
   permanent passphrase fallback.
@@ -144,31 +144,50 @@ a. Enable the Secure Boot module — in `hosts/athena/configuration.nix`, uncomm
 
 This forces systemd-boot off (`lib.mkForce false`) and switches to lanzaboote.
 
-b. Create your Secure Boot keys (written to `/var/lib/sbctl`):
-
-```bash
-sudo sbctl create-keys
-```
-
-c. Rebuild so lanzaboote signs the boot chain:
+b. Rebuild to activate the module. This puts `sbctl` on your `PATH` (it is
+installed by `secureboot.nix`) and switches the loader to lanzaboote:
 
 ```bash
 sudo nixos-rebuild switch --flake /etc/nixos#athena
 ```
 
-d. Reboot into firmware, put Secure Boot into **Setup Mode** (clear the Platform
-Key), save and return to NixOS.
-
-e. Enroll **your own keys** (own keys only — no Microsoft keys):
+c. Create your Secure Boot keys (written to `/var/lib/sbctl`):
 
 ```bash
-sudo sbctl enroll-keys
-#   Fallback only if firmware / an option-ROM refuses unsigned-by-MS code
-#   (reversible — clear to Setup Mode and re-run with --microsoft):
-#   sudo sbctl enroll-keys --microsoft
+sudo sbctl create-keys
 ```
 
-f. Reboot into firmware, **enable Secure Boot**, save and return to NixOS.
+d. Rebuild again so lanzaboote signs the boot chain with the keys you just
+created:
+
+```bash
+sudo nixos-rebuild switch --flake /etc/nixos#athena
+```
+
+e. Reboot into firmware, put Secure Boot into **Setup Mode** (clear the Platform
+Key), save and return to NixOS.
+
+f. Enroll your keys **together with Microsoft's keys** (recommended):
+
+```bash
+sudo sbctl enroll-keys --microsoft
+```
+
+Recent `sbctl` warns if you enroll without the Microsoft keys, because much
+firmware ships option ROMs (some GPUs, Thunderbolt, NICs) that are Microsoft-
+signed; without those keys that code fails verification and the machine can fail
+to boot. Enrolling `--microsoft` still installs *your* keys and signs the boot
+chain with them — you are only additionally trusting Microsoft's keys so pre-
+signed option ROMs keep working.
+
+```bash
+#   Own-keys-only (no Microsoft trust anchor) — only if you have confirmed your
+#   firmware has no Microsoft-signed option ROMs. Reversible: clear back to
+#   Setup Mode and re-run with --microsoft if the machine fails to boot.
+#   sudo sbctl enroll-keys
+```
+
+g. Reboot into firmware, **enable Secure Boot**, save and return to NixOS.
 
 ### 7. Verify Secure Boot
 

@@ -15,7 +15,7 @@
     ../../modules/system/nh.nix
     ../../modules/system/gaming.nix
     ../../modules/system/luks-unlock.nix
-    # ../../modules/system/secureboot.nix  # ENABLE AT RUNBOOK STEP 6 — see README; enabling before Secure Boot keys are set up would switch the bootloader to lanzaboote
+    ../../modules/system/secureboot.nix  # ENABLE AT RUNBOOK STEP 6 — see README; enabling before Secure Boot keys are set up would switch the bootloader to lanzaboote
   ];
 
   networking.hostName = "athena";
