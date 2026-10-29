@@ -9,6 +9,9 @@
     isNormalUser = true;
     description = "Erik Hacklin";
     shell = pkgs.zsh;
+    # Login password hash, decrypted from the sops secrets repo at activation.
+    # Declared in modules/system/sops.nix as secrets."erik/hashedPassword".
+    hashedPasswordFile = config.sops.secrets."erik/hashedPassword".path;
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
     ];

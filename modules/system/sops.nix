@@ -28,19 +28,26 @@
     # Do NOT generate a standalone age key — the SSH host key is the identity.
     age.generateKey = false;
 
-    # Default sops file. Individual secrets can override `sops.secrets.<name>.sopsFile`.
-    # Point this at a checked-out path of the secrets repo once it is cloned on
-    # athena, e.g. "/home/erik/Repositories/nixos-secrets/secrets/athena.yaml".
-    #
-    # defaultSopsFile = /home/erik/Repositories/nixos-secrets/secrets/athena.yaml;
+    # Secrets live outside the Nix store (string sopsFile paths, see below), so
+    # the default eval-time validation — which only works for in-store files —
+    # must be disabled. sops-nix reads and validates the file at activation
+    # instead, on athena where the secrets repo is checked out.
+    validateSopsFiles = false;
 
-    # Declare secrets here as you add them. Example (commented until you have a
-    # real secret and athena is enrolled as a recipient):
+    # erik's login password HASH (not plaintext). Stored in the secrets repo and
+    # consumed by users.users.erik.hashedPasswordFile in users.nix.
     #
-    # secrets."example_token" = {
-    #   sopsFile = /home/erik/Repositories/nixos-secrets/secrets/example.yaml;
-    #   # owner = "erik";
-    #   # mode = "0400";
-    # };
+    # neededForUsers = true: user accounts are created very early in activation,
+    # before normal secrets are mounted. This flag makes the secret available in
+    # time, decrypting it to /run/secrets-for-users/. Such secrets are root-only
+    # by design, so no owner/mode is set here.
+    #
+    # sopsFile is a STRING (not a Nix path), so the encrypted file is NOT copied
+    # into the nix store and is read at activation time on athena. This requires
+    # the secrets repo to be checked out at this path on the machine.
+    secrets."erik/hashedPassword" = {
+      sopsFile = "/home/erik/Repositories/nixos-secrets/secrets/users.yaml";
+      neededForUsers = true;
+    };
   };
 }
